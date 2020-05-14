@@ -22,7 +22,7 @@ mat-radio-group mat-radio-button{margin-left:5px;}
 .button-wrapper button{margin-right:5px;}
 table.mat-table,table{width:100%;}
 .inner-wrapper{padding:15px 0 130px;width:100%;}
-.inner-wrapper mat-card{display:inline-block;margin:0 6% 0 0;vertical-align:top;width:44%;}
+.inner-wrapper mat-card{display:inline-block;margin:0 6% 0 0;vertical-align:top;width:60%;}
 .full-wrapper{width:100%;}
 .multiple-items{position:relative;}
 .multiple-items .tooltip-info{right:0;top:7px;cursor:pointer;color:#a1a7c7;position:absolute;font-size:20px;}

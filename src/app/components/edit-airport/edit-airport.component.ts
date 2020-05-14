@@ -25,7 +25,6 @@ export class EditAirportComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   airportForm: FormGroup;
   hubforArray: HubFor[] = [];
-  // SectioinArray: any = ['A', 'B', 'C', 'D', 'E'];
 
   ngOnInit() {
     this.updateBookForm();
@@ -103,7 +102,7 @@ export class EditAirportComponent implements OnInit {
   /* Update book */
   updateAirportForm() {
     console.log(this.airportForm.value);
-    console.log('entering updateAirportForm()');
+    // console.log('entering updateAirportForm()');
     var id = this.actRoute.snapshot.paramMap.get('id');
     if (window.confirm('Are you sure you want to update?')) {
       this.airportApi.UpdateAirport(id, this.airportForm.value).subscribe( res => {

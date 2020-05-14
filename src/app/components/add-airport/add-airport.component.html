@@ -7,76 +7,78 @@
 <!-- Form -->
 <div class="inner-wrapper">
   <form [formGroup]="airportForm" (ngSubmit)="submitAirportForm()" #resetAirportForm="ngForm" novalidate>
-    <!-- Left block -->
-    <mat-card>
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <!-- Left block -->
+    <mat-card fxFlex="50%">
       <div class="controlers-wrapper">
         <!-- Name -->
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Airport name" formControlName="airport_name">
-          <mat-error *ngIf="handleError('airport_name', 'required')">
-            You must provide a<strong>airport name</strong>
-          </mat-error>
-        </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Airport Name" formControlName="airport_name">
+            <mat-error *ngIf="handleError('airport_name', 'required')">
+              You must provide a <strong>Name</strong>
+            </mat-error>
+          </mat-form-field>
 
-        <!-- Email -->
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Airport code" formControlName="airport_code">
-          <mat-error *ngIf="handleError('airport_code', 'required')">
-            You must provide a<strong>airport code</strong>
-          </mat-error>
-        </mat-form-field>
+          <!-- Code -->
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Airport Code" formControlName="airport_code">
+            <mat-error *ngIf="handleError('airport_code', 'required')">
+              You must provide a <strong>Code</strong>
+            </mat-error>
+          </mat-form-field>
 
-        <!-- Address -->
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Airport address" formControlName="airport_address">
-          <mat-error *ngIf="handleError('airport_address', 'required')">
-            You must provide a<strong>airport address</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
-    </mat-card>
-
-    <!-- Right block -->
-    <mat-card>
-      <div class="controlers-wrapper">
-        <!-- Add hubfors -->
-        <mat-form-field class="multiple-items">
-          <mat-chip-list #chipList>
-            <mat-chip *ngFor="let hubforArray of hubforArray" [selectable]="selectable" [removable]="removable"
-              (removed)="remove(hubforArray)">
-              {{hubforArray.name}}
-              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-            </mat-chip>
-            <input placeholder="Add hubfor" [matChipInputFor]="chipList"
-              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
-              (matChipInputTokenEnd)="add($event)">
-          </mat-chip-list>
-          <i class="material-icons tooltip-info" matTooltip="Enter hubfor name and press enter to add hubfors">
-            info
-          </i>
-        </mat-form-field>
-
-        <!-- Date of opening -->
-        <mat-form-field>
-          <input matInput readonly [matDatepicker]="picker" placeholder="Date of opening" formControlName="date_opened"
-            (dateChange)="formatDate($event)">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="handleError('date_opened', 'required')">
-            Date of opening is required
-          </mat-error>
-        </mat-form-field>
-
-        <!-- Gender -->
-        <div class="misc-bottom-padding">
-          <mat-label>Airport Type:</mat-label>
-          <mat-radio-group aria-label="Select an option" formControlName="airport_type">
-            <mat-radio-button value="Domestic">Domestic</mat-radio-button>
-            <mat-radio-button value="International">International</mat-radio-button>
-          </mat-radio-group>
+          <!-- Address -->
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Airport Address" formControlName="airport_address">
+            <mat-error *ngIf="handleError('airport_address', 'required')">
+              You must provide an <strong>Address</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
-      </div>
-    </mat-card>
+      </mat-card>
+
+      <!-- Right block -->
+      <mat-card fxFlex="50%">
+        <div class="controlers-wrapper">
+          <!-- Add hubfors -->
+          <mat-form-field class="multiple-items">
+            <mat-chip-list #chipList>
+              <mat-chip *ngFor="let hubforArray of hubforArray" [selectable]="selectable" [removable]="removable"
+                (removed)="remove(hubforArray)">
+                {{hubforArray.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input placeholder="Add Airlines" [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+            <i class="material-icons tooltip-info" matTooltip="Enter Airlines and press Enter to add">
+              info
+            </i>
+          </mat-form-field>
+
+          <!-- Date of opening -->
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Date of opening (MM/DD/YYYY)" formControlName="date_opened"
+              (dateChange)="formatDate($event)">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="handleError('date_opened', 'required')">
+              Date of opening is required
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Type -->
+          <div class="misc-bottom-padding">
+            <mat-label>Airport Type:</mat-label>
+            <mat-radio-group aria-label="Select an option" formControlName="airport_type">
+              <mat-radio-button value="Domestic">Domestic</mat-radio-button>
+              <mat-radio-button value="International">International</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </mat-card>
+    </div>
 
     <!-- Submit & Reset -->
     <mat-card>

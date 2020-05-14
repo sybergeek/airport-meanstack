@@ -13,7 +13,7 @@ export class AirportsListComponent implements OnInit {
   AirportData: any = [];
   dataSource: MatTableDataSource<Airport>;
   @ViewChild(MatPaginator,{static: false}) paginator: MatPaginator;
-  displayedColumns: string[] = ['_id', 'airport_name', 'airport_code', 'airport_address', 'action'];
+  displayedColumns: string[] = ['airport_code', 'airport_name', 'airport_type', 'airport_address', 'hub_for', 'action'];
 
   constructor(private airportApi: ApiService) {
     this.airportApi.GetAirports().subscribe(data => {

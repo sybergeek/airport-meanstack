@@ -12,6 +12,7 @@ import { AngularMaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './shared/api.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { FlexLayoutModule } from '@angular/flex-layout'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularMaterialModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // FlexLayoutModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

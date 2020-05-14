@@ -25,10 +25,9 @@ export class AddAirportComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   airportForm: FormGroup;
   hubforArray: HubFor[] = [];
-  // SectioinArray: any = ['A', 'B', 'C', 'D', 'E'];
 
   ngOnInit() {
-    this.submitBookForm();
+    this.submitAirlineForm();
   }
 
   constructor(
@@ -38,8 +37,8 @@ export class AddAirportComponent implements OnInit {
     private airportApi: ApiService
   ) { }
 
-  /* Reactive book form */
-  submitBookForm() {
+  /* Reactive airline form */
+  submitAirlineForm() {
     this.airportForm = this.fb.group({
       airport_name: ['', [Validators.required]],
       airport_code: ['', [Validators.required]],
@@ -85,7 +84,7 @@ export class AddAirportComponent implements OnInit {
     return this.airportForm.controls[controlName].hasError(errorName);
   }  
 
-  /* Submit book */
+  /* Submit airline */
   submitAirportForm() {
     if (this.airportForm.valid) {
       this.airportApi.AddAirport(this.airportForm.value).subscribe(res => {
