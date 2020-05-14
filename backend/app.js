@@ -3,14 +3,15 @@ let express = require('express'),
   mongoose = require('mongoose'),
   cors = require('cors'),
   bodyParser = require('body-parser'),
-  dataBaseConfig = require('./database/db');
+  dataBaseConfig = require('./database/db'),
+  createError = require('createerror');
 
 // Connecting mongoDB
 mongoose.Promise = global.Promise;
 mongoose.connect(dataBaseConfig.db, {
   useNewUrlParser: true
 }).then(() => {
-    console.log('Database connected sucessfully ')
+    console.log('Database connected successfully ')
   },
   error => {
     console.log('Could not connected to database : ' + error)

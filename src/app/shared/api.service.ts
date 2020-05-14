@@ -42,8 +42,12 @@ export class ApiService {
 
   // Update airport
   UpdateAirport(id, data: Airport): Observable<any> {
-    let API_URL = `${this.endpoint}/update/${id}`;
-    return this.http.put(API_URL, data, { headers: this.headers }).pipe(
+    // console.log('entering UpdateAirport');
+    let API_URL = `${this.endpoint}/update-airport/${id}`;
+    // console.log(API_URL);
+    // console.log(data);
+    // console.log(this.headers);
+    return this.http.put(API_URL, data).pipe(
       catchError(this.errorMgmt)
     )
   }
@@ -58,7 +62,7 @@ export class ApiService {
 
   // Error handling 
   errorMgmt(error: HttpErrorResponse) {
-    let errorMessage = '';
+    let errorMessage = 'errorinit';
     if (error.error instanceof ErrorEvent) {
       // Get client-side error
       errorMessage = error.error.message;

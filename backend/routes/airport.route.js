@@ -41,15 +41,15 @@ airportRoute.route('/read-airport/:id').get((req, res) => {
 
 // Update airport
 airportRoute.route('/update-airport/:id').put((req, res, next) => {
-  Airport.findByIdAndUpdate(req.params.id, {
-    $set: req.body
-  }, (error, data) => {
+  Airport.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true}, (error, data) => {
     if (error) {
+      // console.log('entering findByIdAndUpdate with error');
       return next(error);
-      console.log(error)
+      // console.log(error)
     } else {
-      res.json(data)
-      console.log('Airport successfully updated!')
+      // console.log('entering findByIdAndUpdate');
+      res.json(data);
+      console.log('Airport successfully updated!');
     }
   })
 })
