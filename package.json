@@ -4,7 +4,7 @@
   "scripts": {
     "client": "npm run start",
     "server": "cd backend && npm start",
-    "start": "(cd backend && npm run start) & ng serve",
+    "start": "(cd backend && npm start) & ng serve",
     "ng": "ng",
     "build": "ng build",
     "test": "ng test",
